@@ -39,6 +39,7 @@ trait HttpClient
         $route->post("/auth", [new AuthenticationController, "handle"]);
 
         $route->get("/create-account", function () {
+            
             Authorization::isAuthorizated();
 
             self::getViewIstance()->render("create-account.html", [
@@ -50,6 +51,7 @@ trait HttpClient
         });
 
         $route->get("/update-account", function () {
+            
             Authorization::notAuthorizated();
 
             self::getViewIstance()->render("update-account.html", [

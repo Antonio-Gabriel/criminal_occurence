@@ -47,36 +47,36 @@ class AuthenticationController implements IHandle
         $authCommand = new AuthenticationCommand(new AccountRepository());
         $result = $authCommand->execute($requestData['email'], $requestData['password']);
 
-            if (gettype($result) == "object") {
+        if (gettype($result) == "object") {
 
-                $_SESSION["result"] = [
-                    "status" => 404,
-                    "msg" => "Conta não existe!"
-                ];
+            $_SESSION["result"] = [
+                "status" => 404,
+                "msg" => "Conta não existe!"
+            ];
 
-                Logger::logger("Conta não existe", "error", $requestData);
-
-                unset($_SESSION['formData']);
-
-                redirect('');
-            }
-
-            if ($result == 0) {
-
-                $_SESSION["result"] = [
-                    "status" => 401,
-                    "msg" => "Usuário ou senha inválida!"
-                ];
-
-                Logger::logger("Usuário ou senha inválida", "error", $requestData);
-
-                unset($_SESSION['formData']);
-
-                redirect('');
-            }
+            Logger::logger("Conta não existe", "error", $requestData);
 
             unset($_SESSION['formData']);
 
-            redirect('home');
+            redirect('');
+        }
+
+        if ($result == 0) {
+
+            $_SESSION["result"] = [
+                "status" => 401,
+                "msg" => "Usuário ou senha inválida!"
+            ];
+
+            Logger::logger("Usuário ou senha inválida", "error", $requestData);
+
+            unset($_SESSION['formData']);
+
+            redirect('');
+        }
+
+        unset($_SESSION['formData']);
+
+        redirect('home');
     }
 }

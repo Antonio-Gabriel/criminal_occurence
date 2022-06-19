@@ -4,33 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Picket</title>
-
-    <style>
-      .input-error {
-        background: red;
-      }
-
-      .input-success {
-        background: green;
-      }
-    </style>
+    <title>Update</title>
   </head>
   <body>
     <h2>update-account</h2>
 
     {% if status != 0 %}
-      <div style="background-color: {{ status != 200 ? 'red' : 'green' }}; padding: 1px 8px; margin-bottom: 1rem;">
-        <p style="color: {{ status != 200 ? 'black' : 'white' }};" >{{ msg }}</p>
-      </div>    
+    <div>
+      <p>{{ msg }}</p>
+    </div>
     {% endif %}
 
-    <form
-      action="{{ route('create-account') }}"
-      method="post"
-      enctype="multipart/form-data"
-    >
-
+    <pre>
+      {{ dump(user) }}
+    </pre>
+    
+    <form action="{{ route('update-account') }}" method="post">
       <input
         type="text"
         name="name"
@@ -45,16 +34,16 @@
         type="text"
         name="email"
         placeholder="example@criminal.me"
-        value="{{ formData()['email']['value'] }}"        
+        value="{{ formData()['email']['value'] }}"
       />
       {{ formData()['email']['error'] }}
       <br />
-      <input 
-        type="password" 
-        name="password" 
-        placeholder="your pass" 
+      <input
+        type="password"
+        name="password"
+        placeholder="your pass"
         value="{{ formData()['password']['value'] }}"
-        />
+      />
       {{ formData()['password']['error'] }}
       <br />
 

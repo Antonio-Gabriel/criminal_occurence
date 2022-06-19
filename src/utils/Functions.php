@@ -1,8 +1,11 @@
 <?php
 
-function sayGoodBye(string $name)
+use CriminalOccurence\common\File;
+
+function imageLinks(string $dirname)
 {
-    return "Hello {$name}, good bye!";
+    $file = new File("photo", "images/");
+    return $file->getImages($dirname);
 }
 
 function route(string $route)

@@ -57,6 +57,7 @@ class Views
         $this->twig->addExtension(new DebugExtension);
         $this->twig->addFunction(new TwigFunction("route", "route"));
         $this->twig->addFunction(new TwigFunction("formData", "formHandler"));
+        $this->twig->addFunction(new TwigFunction("imageLinks", "imageLinks"));
     }
 
     public function render(string $page, array $data = [])
