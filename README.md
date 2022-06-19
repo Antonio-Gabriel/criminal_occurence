@@ -6,6 +6,10 @@ Basically the application will manage at least up to three police departments at
 
 `Picket`, `Sic` and `Research`
 
+## Requirements
+
+You need a php `8.*` version
+
 ## Start
 
 To start the application first you need to install all project dependencies, use the following command to perform this activity.
