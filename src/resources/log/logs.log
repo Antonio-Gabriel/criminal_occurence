@@ -17,3 +17,4 @@
 [2022-06-16T15:35:23.070890+02:00] logger.INFO: Conta Criada com sucesso {"name":"Marcelo Manuel","email":"marcelomanuel@gmail.com","password":"1234"} []
 [2022-06-16T15:36:46.037459+02:00] logger.ERROR: Já existe um usuário com este email, por favor tente um outro {"name":"Marcelo Manuel","email":"antoniocamposgabriel@gmail.com","password":"1234"} []
 [2022-06-16T15:57:57.340847+02:00] logger.ERROR: Usuário ou senha inválida {"email":"garciapedro.php@gmail.com","password":"garciaopedro"} []
+[2022-06-19T12:39:20.482074+02:00] logger.ERROR: Usuário ou senha inválida {"email":"antoniocamposgabriel@gmail.com","password":"antoniocampos20"} []
