@@ -4,7 +4,7 @@ use CriminalOccurence\common\File;
 
 function imageLinks(string $dirname)
 {
-    $file = new File("photo", "images/");
+    $file = new File("", "images/");
     return $file->getImages($dirname);
 }
 

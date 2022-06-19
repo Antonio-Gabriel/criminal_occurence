@@ -65,26 +65,24 @@ class File
 
         $this->targetFilePath = $dynamicDir . $newfilename;
 
-        if (intval($dynamicDir) !== 0) {
-            $uploaded = move_uploaded_file(
-                $_FILES[$this->file]["tmp_name"],
-                $this->targetFilePath
+        $uploaded = move_uploaded_file(
+            $_FILES[$this->file]["tmp_name"],
+            $this->targetFilePath
+        );
+
+        if ($uploaded) {
+            $thumbLocal = $dynamicDir . $thumbName;
+
+            $isUpload = $this->thumbnail->createThumbnail(
+                $this->targetFilePath,
+                $thumbLocal,
+                320
             );
 
-            if ($uploaded) {
-                $thumbLocal = $dynamicDir . $thumbName;
-
-                $isUpload = $this->thumbnail->createThumbnail(
-                    $this->targetFilePath,
-                    $thumbLocal,
-                    320
-                );
-
-                if ($isUpload) {
-                    return $dynamicDir;
-                }
+            if ($isUpload) {
+                return $dynamicDir;
             }
-        }        
+        }
     }
 
     private function createDynamicPath()
