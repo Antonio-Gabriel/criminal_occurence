@@ -34,27 +34,27 @@
         type="text"
         name="name"
         placeholder="john doe"
-        value="{{ formData()['name']['value'] }}"
-        class="input-{{ formData()['name']['error'] ? 'error' : 'success' }}"
+        value="{{ formData().name.value }}"
+        class="input-{{ formData().name.error ? 'error' : 'success' }}"
       />
 
-      {{ formData()['name']['error'] }}
+      {{ formData().name.error }}
       <br />
       <input
         type="text"
         name="email"
         placeholder="example@criminal.me"
-        value="{{ formData()['email']['value'] }}"
+        value="{{ formData().email.value }}"
       />
-      {{ formData()['email']['error'] }}
+      {{ formData().email.error }}
       <br />
       <input
         type="password"
         name="password"
         placeholder="your pass"
-        value="{{ formData()['password']['value'] }}"
+        value="{{ formData().password.value }}"
       />
-      {{ formData()['password']['error'] }}
+      {{ formData().password.error }}
       <br />
 
       <input type="file" name="photo" id="photo" />

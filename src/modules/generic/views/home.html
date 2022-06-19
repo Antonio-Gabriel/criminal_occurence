@@ -44,10 +44,12 @@
     <h1>Welcome to home</h1>
 
     <div class="profile">
+      {% if user.image_dir != 0 %}
       <img
         src="{{ imageLinks(user.image_dir).thumbnail_small }}"
         alt="{{ user.name }}"
       />
+      {% endif %}
       <div class="profile-content">
         <h2>UserName: {{ user.name }}</h2>
         <span>

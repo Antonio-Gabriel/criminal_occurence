@@ -15,17 +15,15 @@
     </div>
     {% endif %}
 
-    <pre>
-      {{ dump(user) }}
-    </pre>
-    
     <form action="{{ route('update-account') }}" method="post">
+      <input type="hidden" name="id" value="{{ user.id }}" />
+      <br />
+
       <input
         type="text"
         name="name"
         placeholder="john doe"
-        value="{{ formData()['name']['value'] }}"
-        class="input-{{ formData()['name']['error'] ? 'error' : 'success' }}"
+        value="{{ user.name }}"
       />
 
       {{ formData()['name']['error'] }}
@@ -34,17 +32,16 @@
         type="text"
         name="email"
         placeholder="example@criminal.me"
-        value="{{ formData()['email']['value'] }}"
+        value="{{ user.email }}"
       />
       {{ formData()['email']['error'] }}
       <br />
       <input
-        type="password"
+        type="hidden"
         name="password"
         placeholder="your pass"
-        value="{{ formData()['password']['value'] }}"
+        value="{{ user.password }}"
       />
-      {{ formData()['password']['error'] }}
       <br />
 
       <button type="submit">Update</button>

@@ -20,18 +20,18 @@
         type="text"
         name="email"
         placeholder="example@criminal.me"
-        value="{{ formData()['email']['value'] }}"
+        value="{{ formData().email.value }}"
       />
-      {{ formData()['email']['error'] }}
+      {{ formData().email.error }}
 
       <br />
       <input
         type="password"
         name="password"
         placeholder="your pass"
-        value="{{ formData()['password']['value'] }}"
+        value="{{ formData().password.value }}"
       />
-      {{ formData()['password']['error']}}
+      {{ formData().password.error}}
 
       <br />
 
