@@ -10,7 +10,8 @@ use CriminalOccurence\modules\picket\api\http\PicketRoutes;
 
 use CriminalOccurence\modules\generic\controllers\{
     CreateAccountController,
-    AuthenticationController
+    AuthenticationController,
+    UpdateAccountController
 };
 
 use CriminalOccurence\middleware\security\Authorization;
@@ -55,11 +56,16 @@ trait HttpClient
             Authorization::notAuthorizated();
 
             self::getViewIstance()->render("update-account.html", [
-                "user" => $_SESSION['user'] ?? null
+                "user" => $_SESSION['user'] ?? null,
+                "status" => status()["status"] ?? 0,
+                "msg" => status()["msg"]
             ]);
+
+            unset($_SESSION["result"]);
         });
 
         $route->post("/create-account", [new CreateAccountController, "handle"]);
+        $route->post("/update-account", [new UpdateAccountController, "handle"]);
 
         $route->get("/home", function () {
 
