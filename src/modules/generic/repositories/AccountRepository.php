@@ -8,7 +8,6 @@ use CriminalOccurence\modules\generic\interfaces\IAccountRepository;
 
 class AccountRepository implements IAccountRepository
 {
-
     public function __construct(
         private ?Sql $sql = null
     ) {
@@ -36,8 +35,8 @@ class AccountRepository implements IAccountRepository
             "UPDATE test SET name = :name, email = :email, password = :password WHERE id = :id",
             [
                 ":id" => $user->getId(),
-                ":name"=> $user->props->name,
-                ":email"=> $user->props->email,
+                ":name" => $user->props->name,
+                ":email" => $user->props->email,
                 ":password" => $user->props->password,
             ]
         );
