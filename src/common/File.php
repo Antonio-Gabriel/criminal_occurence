@@ -9,6 +9,7 @@ namespace CriminalOccurence\common;
  *
  * @author Garcia Pedro <garciapedro.php@gmail.com>
  * @author Crisvan dos Santos <csdesigner.05@gmail.com>
+ * @author António Gabriel <antoniocamposgabriel@gmail.com>
  */
 
 use CriminalOccurence\common\Application;
