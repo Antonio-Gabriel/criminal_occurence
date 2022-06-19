@@ -37,7 +37,7 @@ class CreateAccountController implements IHandle
             redirect('create-account');
         }
 
-        if ($result) {  
+        if ($result) {
             $_SESSION["result"] = [
                 "status" => 200,
                 "msg" => "Conta Criada com sucesso"
@@ -54,9 +54,9 @@ class CreateAccountController implements IHandle
             "msg" => "Erro ao criar conta"
         ];
 
-        Logger::logger("Erro ao criar conta","error", $requestData);
+        Logger::logger("Erro ao criar conta", "error", $requestData);
 
-        unset($_SESSION["formData"]);        
-        redirect("create-account");        
+        unset($_SESSION["formData"]);
+        redirect("create-account");
     }
 }
