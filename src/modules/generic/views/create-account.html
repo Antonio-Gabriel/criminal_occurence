@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picket</title>
+
+    <style>
+      .input-error {
+        background: red;
+      }
+
+      .input-success {
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Create account</h2>
+
+    {% if status != 0 %}
+      <div style="background-color: {{ status != 200 ? 'red' : 'green' }}; padding: 1px 8px; margin-bottom: 1rem;">
+        <p style="color: {{ status != 200 ? 'black' : 'white' }};" >{{ msg }}</p>
+      </div>    
+    {% endif %}
+
+    <form
+      action="{{ route('create-account') }}"
+      method="post"
+      enctype="multipart/form-data"
+    >
+
+      <input
+        type="text"
+        name="name"
+        placeholder="john doe"
+        value="{{ formData()['name']['value'] }}"
+        class="input-{{ formData()['name']['error'] ? 'error' : 'success' }}"
+      />
+
+      {{ formData()['name']['error'] }}
+      <br />
+      <input
+        type="text"
+        name="email"
+        placeholder="example@criminal.me"
+        value="{{ formData()['email']['value'] }}"        
+      />
+      {{ formData()['email']['error'] }}
+      <br />
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="your pass" 
+        value="{{ formData()['password']['value'] }}"
+        />
+      {{ formData()['password']['error'] }}
+      <br />
+
+      <input type="file" name="photo" id="photo" />
+      <br />
+
+      <button type="submit">Create</button>
+    </form>
+
+    <p>
+      I have account?,
+      <a href="{{ route('') }}">Sign in</a>
+    </p>
+  </body>
+</html>

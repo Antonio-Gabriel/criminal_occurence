@@ -1,0 +1,8 @@
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-s [OR]
+RewriteCond %{REQUEST_FILENAME} !-l [OR]
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_URI} !.(?:css|js|jpe?g|gif|png|svg|ttf)$ [NC]
+
+RewriteRule ^ index.php [QSA,L]

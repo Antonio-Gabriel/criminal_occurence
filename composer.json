@@ -1,0 +1,28 @@
+{
+    "name": "vendor/criminal-occurence",
+    "description": "Plataforma de gestão de ocorrências criminais",
+    "license": "MTI",
+    "autoload": {
+        "psr-4": {
+            "CriminalOccurence\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Garcia Pedro",
+            "email": "garciapedro.php@gmail.com"
+        },
+        {
+            "name": "Crisvan do Santos",
+            "email": "csdesigner.05@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "ramsey/uuid": "5.x-dev",
+        "twig/twig": "3.x-dev",
+        "vlucas/phpdotenv": "5.4.x-dev",
+        "monolog/monolog": "3.x-dev",
+        "slim/slim": "3.*"
+    }    
+}

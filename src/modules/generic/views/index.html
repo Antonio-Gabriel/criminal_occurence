@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Picket</title>
+  </head>
+  <body>
+      
+    <h2>Welcome to picket, please sign in for working</h2>
+
+    {% if status != 0 %}
+      <div style="background-color: {{ status != 200 ? 'red' : 'green' }}; padding: 1px 8px; margin-bottom: 1rem;">
+        <p style="color: {{ status != 200 ? 'black' : 'white' }};" >{{ msg }}</p>
+      </div>    
+    {% endif %}
+
+    <form action="{{ route('auth') }}" method="post">
+      <input 
+        type="text"
+        name="email"
+        placeholder="example@criminal.me"
+        value="{{ formData()['email']['value'] }}"
+       />
+        {{ formData()['email']['error'] }}
+
+      <br />
+      <input 
+        type="password" 
+        name="password" 
+        placeholder="your pass"
+        value="{{ formData()['password']['value'] }}" 
+      />
+      {{ formData()['password']['error']}}
+
+      <br />
+
+      <button type="submit">Sign in</button>
+    </form>
+
+    <p>
+      I don't have an account?,
+      <a href="{{ route('create-account') }}">create account</a>
+    </p>
+  </body>
+</html>
