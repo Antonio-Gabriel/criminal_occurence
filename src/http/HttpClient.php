@@ -24,22 +24,22 @@ trait HttpClient
 
     public static function routes(App $route)
     {
-        $route->get("/", function () {        
-            
+        $route->get("/", function () {
+
             Authorization::isAuthorizated();
-            
+
             self::getViewIstance()->render("index.html", [
                 "status" => status()["status"] ?? 0,
                 "msg" => status()["msg"]
             ]);
 
             unset($_SESSION["result"]);
-        }); 
+        });
 
         $route->post("/auth", [new AuthenticationController, "handle"]);
 
         $route->get("/create-account", function () {
-            
+
             Authorization::isAuthorizated();
 
             self::getViewIstance()->render("create-account.html", [
@@ -51,7 +51,7 @@ trait HttpClient
         });
 
         $route->get("/update-account", function () {
-            
+
             Authorization::notAuthorizated();
 
             self::getViewIstance()->render("update-account.html", [
@@ -68,9 +68,11 @@ trait HttpClient
             self::getViewIstance()->render("home.html", [
                 "user" => $_SESSION['user'] ?? null
             ]);
+
+            unset($_SESSION["result"]);
         });
 
-        $route->get("/logout", function(){
+        $route->get("/logout", function () {
             session_regenerate_id();
             unset($_SESSION['user']);
             redirect("");
